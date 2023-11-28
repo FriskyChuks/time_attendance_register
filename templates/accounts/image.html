@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %} Image {% endblock %} 
+
+{% block content %}
+<!-- <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'> -->
+{% include 'base_files/style_login.html' %}
+<div class="login-form">
+  <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <br>
+    <center style="color: green;">{{msg}}</center>
+    
+    <div class="content">
+      <div class="input-field">
+        <input type="file" placeholder="Select Image" name="image" required>
+      </div>
+      <a href="#" class="link">Select Image to upload</a>
+    </div>
+    <div class="action">
+      <button>Upload Image</button>
+    </div>
+  </form>
+</div>
+
+{% endblock content %}
+

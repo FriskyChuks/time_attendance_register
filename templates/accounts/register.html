@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %} Register {% endblock %} 
+
+{% block content %}
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+{% include 'base_files/style_login.html' %}
+<div class="login-form">
+  <form method="POST">{% csrf_token %}
+    <br>
+    <center style="color: red;">{{msg}}</center>
+    <h1>Register
+      <span style="font-size: xx-large;">
+        <button>or <a href="{% url 'auth_login' %}">Sign in to continue</a></button>
+      </span>
+    </h1> 
+    
+    <div class="content">
+      <!-- <div class="input-field">
+        <input type="text" placeholder="Username" name="username" required>
+      </div> -->
+      <div class="input-field">
+        <input type="email" placeholder="Email" name="email" required>
+      </div>
+      <div class="input-field">
+        <input type="password" placeholder="Password" name="password" required>
+      </div>
+      <div class="input-field">
+        <input type="password" placeholder="Confirm Password" name="confirm_password" required>
+      </div>
+      <a href="#" class="link">Forgot Your Password?</a>
+    </div>
+    <div class="action">
+      <button>Register</button>
+    </div>
+  </form>
+</div>
+
+{% endblock content %}
+{% include 'base_files/script_login.html' %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %} Time & Attendance Register {% endblock %}
+
+{% block content %}
+<style>
+    table, th, td {
+        border: 1px solid;
+        table {
+        width: 100%;
+    }
+
+    th { height: 30px;}
+    td {text-align: center;}
+    tr {background-color: white;}
+    tr:hover {background-color: coral;}
+    tr:nth-child(even) {background-color: #f2f2f2;}
+}
+</style>
+<br><br>
+<center>
+    <div style="overflow-x:auto;">
+        <table class="table">
+            <thead>
+                <th>ID</th>
+                <th>CLOCK IN</th>
+                <th>CLOCK OUT</th>
+            </thead>
+            <tbody>
+                {% for clock in clocks %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>
+                            {{clock.clock_in}}
+                        </td>
+                        <td>
+                            {% if clock.clock_out %}
+                                {{clock.clock_out}}
+                            {% else %}
+                                Pending
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</center>
+    
+{% endblock %}
